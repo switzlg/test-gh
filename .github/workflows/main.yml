@@ -14,10 +14,10 @@ on:
         options:
           - staging
           - production
-          - debug
 
 jobs:
   load_spreadsheets:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Echo
+        run: echo ${{ github.event.inputs.db_env }}
