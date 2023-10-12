@@ -1,0 +1,23 @@
+name: Test Choice
+
+on:
+  workflow_dispatch:
+    inputs:
+      spreadsheet_ids:
+        description: Spreadsheet Ids (delimited by comma)
+        required: true
+      db_env:
+        description: Database Environment
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+          - debug
+
+jobs:
+  load_spreadsheets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
