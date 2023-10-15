@@ -9,7 +9,7 @@ on:
       db_env:
         description: Database Environment
         required: true
-        default: "staging"
+        default: staging
         type: choice
         options:
           - staging
