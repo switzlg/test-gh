@@ -1,0 +1,17 @@
+name: Echo GitHub Ref
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  echo_ref:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: echo ref
+        run: echo "${{ github.ref }}"
+      
+      - name: Echo GitHub Ref
+        if: ${{ github.event_name == 'release' && github.event.action == 'published' }}
+        run: echo "${{ github.event.release.tag_name }}"
